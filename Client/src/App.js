@@ -1,25 +1,14 @@
 import React, { Component } from "react";
 import { Routes, Route } from "react-router-dom";
+import Landing from "./Pages/Landing/Landing";
+import Login from "./Pages/Login/Login";
 
 function App() {
-
   return (
     <div className="App">
       <Routes>
-        <Route
-          exact
-          path="/login"
-          element={
-            <Login
-              error={(msg) => {
-                this.error(msg);
-              }}
-              warning={(msg) => {
-                this.warning(msg);
-              }}
-            />
-          }
-        />
+        <Route exact path="/" element={<Landing />} />
+        <Route exact path="/login" element={<Login />} />
       </Routes>
     </div>
   );
