@@ -11,13 +11,6 @@
     flex-direction: column;
     padding: 8px;
     width: 45%;
-    .check {
-      display: flex;
-      align-items: center;
-      p {
-        margin-left: 8px;
-      }
-    }
   }
   .other-column {
     display: flex;
@@ -26,5 +19,12 @@
     flex-direction: column;
     width: 10%;
     padding: 8px;
+    .check {
+      display: flex;
+      align-items: center;
+      p {
+        margin-left: 8px;
+      }
+    }
   }
 }
