@@ -27,30 +27,22 @@ class Tools extends Component {
               <FormLabel component="legend">Options</FormLabel>
               <RadioGroup
                 aria-label="gender"
-                defaultValue="Usun"
+                defaultValue="Minifikuj"
                 name="radio-buttons-group"
               >
                 <FormControlLabel
-                  value="Usun"
+                  value="Minifikuj"
                   control={<Radio />}
-                  label="Usun"
+                  label="Minifikuj"
                 />
                 <FormControlLabel
-                  value="Zachowaj"
+                  value="Deminifikuj"
                   control={<Radio />}
-                  label="Zachowaj"
+                  label="Deminifikuj"
                 />
               </RadioGroup>
             </FormControl>
             <Divider />
-            <div className="check">
-              <Checkbox defaultChecked />
-              <p>Entery</p>
-            </div>
-            <div className="check">
-              <Checkbox defaultChecked />
-              <p>Spacji</p>
-            </div>
           </div>
           <div className="column">
             <TextField
@@ -68,7 +60,7 @@ class Tools extends Component {
               label="Output"
               multiline
               rows={10}
-              value={"Hello i'm your father"}
+              value={""}
               fullWidth
             />
           </div>

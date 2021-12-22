@@ -9,13 +9,13 @@ class Header extends Component {
       <div className="header">
         <div className="menu">
           <a className={this.props.ugly ? "active" : ""} href="/minimalize" z>
-            Ugly
+            Compare
           </a>
           <a className={this.props.tools ? "active" : ""} href="/tools">
-            Tools
+            Minification
           </a>
           <a className={this.props.beautiful ? "active" : ""} href="/beautiful">
-            beautiful
+            Filter
           </a>
         </div>
       </div>
