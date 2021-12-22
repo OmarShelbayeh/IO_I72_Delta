@@ -3,6 +3,9 @@ import React, { Component } from "react";
 //css
 import "./css/Tools.css";
 
+//Components
+import Header from "../../Components/Header/Header";
+
 //Material UI
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -15,36 +18,41 @@ import Divider from "@mui/material/Divider";
 class Tools extends Component {
   render() {
     return (
-      <div className="tools">
-        <div className="column">
-          <FormControl component="fieldset">
-            <FormLabel component="legend">Options</FormLabel>
-            <RadioGroup
-              aria-label="gender"
-              defaultValue="Usun"
-              name="radio-buttons-group"
-            >
-              <FormControlLabel value="Usun" control={<Radio />} label="Usun" />
-              <FormControlLabel
-                disabled
-                value="Zachowaj"
-                control={<Radio />}
-                label="Zachowaj"
-              />
-            </RadioGroup>
-          </FormControl>
-          <Divider />
-          <div className="check">
-            <Checkbox defaultChecked />
-            <p>Entery</p>
+      <div>
+        <Header tools />
+        <div className="tools">
+          <div className="column">
+            <FormControl component="fieldset">
+              <FormLabel component="legend">Options</FormLabel>
+              <RadioGroup
+                aria-label="gender"
+                defaultValue="Usun"
+                name="radio-buttons-group"
+              >
+                <FormControlLabel
+                  value="Usun"
+                  control={<Radio />}
+                  label="Usun"
+                />
+                <FormControlLabel
+                  disabled
+                  value="Zachowaj"
+                  control={<Radio />}
+                  label="Zachowaj"
+                />
+              </RadioGroup>
+            </FormControl>
+            <Divider />
+            <div className="check">
+              <Checkbox defaultChecked />
+              <p>Entery</p>
+            </div>
+            <div className="check">
+              <Checkbox defaultChecked />
+              <p>Spacji</p>
+            </div>
           </div>
-          <div className="check">
-            <Checkbox defaultChecked />
-            <p>Spacji</p>
-          </div>
-        </div>
-        <div className="other-column">
-
+          <div className="other-column"></div>
         </div>
       </div>
     );
