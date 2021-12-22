@@ -19,8 +19,22 @@ class AuthenticationService {
       });
   }
 
-  afterLogin() {
-    window.location.href = "/dashboard";
+  register(email, name, surname, password, func) {
+    axios({
+      url: URL + "/api/register",
+      method: "POST",
+      data: {
+        email: email,
+        name: name,
+        surname: surname,
+        password: password,
+        role: "USER",
+      },
+    })
+      .then(() => {
+        window.location.href = "/login";
+      })
+      .catch((error) => func(error));
   }
 
   registerSuccessfulLogin(token) {

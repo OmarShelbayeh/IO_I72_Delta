@@ -18,7 +18,7 @@ class Tools extends Component {
       <div className="tools">
         <div className="column">
           <FormControl component="fieldset">
-            <FormLabel component="legend">Gender</FormLabel>
+            <FormLabel component="legend">Options</FormLabel>
             <RadioGroup
               aria-label="gender"
               defaultValue="Usun"
@@ -43,7 +43,9 @@ class Tools extends Component {
             <p>Spacji</p>
           </div>
         </div>
-        <div className="other-column"></div>
+        <div className="other-column">
+
+        </div>
       </div>
     );
   }
