@@ -47,7 +47,7 @@ class Login extends Component {
         url: URL + "/authenticate",
         method: "POST",
         data: {
-          email: this.state.email,
+          username: this.state.email,
           password: this.state.password,
         },
       })

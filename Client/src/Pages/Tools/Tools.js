@@ -14,6 +14,7 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Divider from "@mui/material/Divider";
+import { TextField } from "@mui/material";
 
 class Tools extends Component {
   render() {
@@ -52,7 +53,24 @@ class Tools extends Component {
               <p>Spacji</p>
             </div>
           </div>
-          <div className="other-column"></div>
+          <div className="column">
+            <TextField
+              id="outlined-multiline-static"
+              label="Multiline"
+              multiline
+              rows={10}
+              fullWidth
+            />
+          </div>
+          <div className="column">
+            <TextField
+              id="outlined-multiline-static"
+              label="Multiline"
+              multiline
+              rows={10}
+              fullWidth
+            />
+          </div>
         </div>
       </div>
     );
