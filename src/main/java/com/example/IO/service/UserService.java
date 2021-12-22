@@ -4,11 +4,12 @@ package com.example.IO.service;
 import com.example.IO.model.User;
 import com.example.IO.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 /**
- *
+ * @author IO-I72-Delta
  * @version 1.0
  */
 @Service
@@ -45,4 +46,25 @@ public class UserService {
         return userRepository.findUserByEmail(email);
     }
 
+    /**
+     * The method is used to register the user with the use of the database
+     *
+     * @param user - user data
+     * @throws Exception - throw an exception if there is no user
+     */
+    public void register(User user) throws Exception {
+        user.setPassword(BCrypt.hashpw(user.getPassword(),BCrypt.gensalt()));
+        if(userRepository.findUserByUserId(user.getId()).isPresent() || userRepository.findUserByEmail(user.getEmail()).isPresent()) throw new Exception();
+        else userRepository.save(user);
+    }
+
+    /**
+     * The function finds the user by email
+     *
+     * @param email - user email
+     * @return User class - the appropriate user class
+     */
+    public User findUserByUserEmail(String email){
+        return userRepository.findUserByEmail(email).isPresent() ? userRepository.findUserByEmail(email).get() : new User();
+    }
 }
