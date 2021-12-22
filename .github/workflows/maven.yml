@@ -43,9 +43,7 @@ jobs:
         java-version: '16'
         distribution: 'adopt'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-      
+    
     - name: Build docs with Maven
       run: mvn javadoc:javadoc
 
@@ -72,4 +70,9 @@ jobs:
           git add -A
           git commit -m "Automated API website updates."
         fi
+
+    
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      
 
