@@ -22,7 +22,7 @@ class Tools extends Component {
       <div>
         <Header tools />
         <div className="tools">
-          <div className="column">
+          <div className="other-column">
             <FormControl component="fieldset">
               <FormLabel component="legend">Options</FormLabel>
               <RadioGroup
@@ -36,7 +36,6 @@ class Tools extends Component {
                   label="Usun"
                 />
                 <FormControlLabel
-                  disabled
                   value="Zachowaj"
                   control={<Radio />}
                   label="Zachowaj"
@@ -56,7 +55,7 @@ class Tools extends Component {
           <div className="column">
             <TextField
               id="outlined-multiline-static"
-              label="Multiline"
+              label="Input"
               multiline
               rows={10}
               fullWidth
@@ -65,7 +64,7 @@ class Tools extends Component {
           <div className="column">
             <TextField
               id="outlined-multiline-static"
-              label="Multiline"
+              label="Output"
               multiline
               rows={10}
               fullWidth

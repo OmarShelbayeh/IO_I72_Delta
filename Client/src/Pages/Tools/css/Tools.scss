@@ -10,7 +10,7 @@
     align-items: center;
     flex-direction: column;
     padding: 8px;
-    width: 33%;
+    width: 45%;
     .check {
       display: flex;
       align-items: center;
@@ -20,6 +20,11 @@
     }
   }
   .other-column {
-    width: 70%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 10%;
+    padding: 8px;
   }
 }
