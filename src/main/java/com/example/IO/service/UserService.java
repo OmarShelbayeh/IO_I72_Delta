@@ -54,7 +54,7 @@ public class UserService {
      */
     public void register(User user) throws Exception {
         user.setPassword(BCrypt.hashpw(user.getPassword(),BCrypt.gensalt()));
-        if(userRepository.findUserByUserId(user.getId()).isPresent() || userRepository.findUserByEmail(user.getEmail()).isPresent()) throw new Exception();
+        if(userRepository.findUserByEmail(user.getEmail()).isPresent()) throw new Exception();
         else userRepository.save(user);
     }
 
