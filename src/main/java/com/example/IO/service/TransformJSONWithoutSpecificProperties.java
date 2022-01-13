@@ -1,11 +1,18 @@
 package com.example.IO.service;
 
+import com.example.IO.model.Component;
+import com.example.IO.model.Decorator;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-@Service
-public class TransformJSONWithoutSpecificProperties {
+import java.util.ArrayList;
 
-    public TransformJSONWithoutSpecificProperties() {
+@Service
+public class TransformJSONWithoutSpecificProperties extends Decorator {
+
+    @Lazy
+    public TransformJSONWithoutSpecificProperties(Component component) {
+        super(component);
     }
 
     public String transformJSONWithoutSpecificProperties(String json, String specificProperties){
@@ -43,5 +50,20 @@ public class TransformJSONWithoutSpecificProperties {
             i++;
         }
         return json;
+    }
+
+    @Override
+    public String operation(String json) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<Integer> operation(String firstJSON, String secondJSON) {
+        return null;
+    }
+
+    @Override
+    public String operation(String json, ArrayList<String> specificProperties) {
+        return null;
     }
 }
