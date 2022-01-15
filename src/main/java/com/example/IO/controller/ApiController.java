@@ -29,27 +29,27 @@ public class ApiController {
         this.transformJSONWithoutSpecificProperties = transformJSONWithoutSpecificProperties;
     }
 
-    @GetMapping("/prettyJSON")
+    @PostMapping("/prettyJSON")
     public String prettyJSON(@RequestBody String json){
         return new PrettyJSON(component).operation(json);
     }
 
-    @GetMapping("/minifyJSON")
+    @PostMapping("/minifyJSON")
     public String minifyJSON(@RequestBody String json){
         return new MinifyJSON(component).operation(json);
     }
 
-    @GetMapping("/compareJSONs")
+    @PostMapping("/compareJSONs")
     public ArrayList<Integer> compareJSONs(@RequestParam String firstJSON, @RequestParam String secondJSON){
         return new CompareJSON(component).operation(firstJSON, secondJSON);
     }
 
-    @GetMapping("/transformJSONWithoutSpecificProperties")
+    @PostMapping("/transformJSONWithoutSpecificProperties")
     public String transformJSONWithoutSpecificProperties(@RequestBody String json, @RequestParam String specificProperties) throws JsonProcessingException {
         return transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(json, specificProperties);
     }
 
-    @GetMapping("/transformJSONSpecificProperties")
+    @PostMapping("/transformJSONSpecificProperties")
     public String transformJSONWSpecificProperties(@RequestParam String json, @RequestParam ArrayList<String> specificProperties){
         return "";
     }
