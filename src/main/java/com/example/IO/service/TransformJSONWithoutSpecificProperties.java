@@ -15,7 +15,13 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         super(component);
     }
 
-    public String transformJSONWithoutSpecificProperties(String json, String specificProperties){
+    public String transformJSONWithoutSpecificProperties(String json, ArrayList<String> specificProperties){
+        for (String specificProperty : specificProperties) {
+            json = transformJSONWithoutSpecificProperty(json, specificProperty);
+        }
+        return json;
+    }
+    public String transformJSONWithoutSpecificProperty(String json, String specificProperties){
         int i = 0;
         int j;
         int code_size = json.length();
@@ -64,6 +70,6 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
 
     @Override
     public String operation(String json, ArrayList<String> specificProperties) {
-        return null;
+        return transformJSONWithoutSpecificProperties(json, specificProperties);
     }
 }

@@ -18,7 +18,6 @@ public class CompareJSON extends Decorator {
         super(component);
     }
 
-
     public ArrayList<Integer> compareJSON(String firstJSON, String secondJSON) {
         String[] firstJSONArray = firstJSON.split("\n");
         String[] secondJSONArray = secondJSON.split("\n");

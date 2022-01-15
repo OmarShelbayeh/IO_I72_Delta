@@ -45,7 +45,7 @@ public class ApiController {
     }
 
     @GetMapping("/transformJSONWithoutSpecificProperties")
-    public String transformJSONWithoutSpecificProperties(@RequestBody String json, @RequestParam String specificProperties) throws JsonProcessingException {
+    public String transformJSONWithoutSpecificProperties(@RequestBody String json, @RequestParam ArrayList<String> specificProperties){
         return transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(json, specificProperties);
     }
 
