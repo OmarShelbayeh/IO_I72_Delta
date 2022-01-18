@@ -9,6 +9,7 @@ import Register from "./Pages/Register/Register";
 //Material UI
 import Snackbar from "@mui/material/Snackbar";
 import { Alert } from "@mui/material";
+import Compare from "./Pages/Tools/Compare";
 
 class App extends Component {
   state = {
@@ -104,7 +105,25 @@ class App extends Component {
               />
             }
           />
+          <Route
+            exact
+            path="/compare"
+            element={
+              <Compare
+                success={(msg) => {
+                  this.success(msg);
+                }}
+                error={(msg) => {
+                  this.error(msg);
+                }}
+                warning={(msg) => {
+                  this.warning(msg);
+                }}
+              />
+            }
+          />
         </Routes>
+
         <Snackbar
           open={this.state.error}
           autoHideDuration={6000}

@@ -8,13 +8,13 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="menu">
-          <a className={this.props.ugly ? "active" : ""} href="/minimalize" z>
+          <a className={this.props.compare ? "active" : ""} href="/compare" z>
             Compare
           </a>
           <a className={this.props.tools ? "active" : ""} href="/tools">
             Minification
           </a>
-          <a className={this.props.beautiful ? "active" : ""} href="/beautiful">
+          <a className={this.props.filter ? "active" : ""} href="/filter">
             Filter
           </a>
         </div>

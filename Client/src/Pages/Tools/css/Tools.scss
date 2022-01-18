@@ -12,6 +12,14 @@
     padding: 8px;
     width: 45%;
   }
+  .compareColumn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 8px;
+    width: 50%;
+  }
   .other-column {
     display: flex;
     justify-content: flex-start;

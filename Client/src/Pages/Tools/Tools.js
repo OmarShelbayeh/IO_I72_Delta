@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 //css
 import "./css/Tools.css";
@@ -15,30 +16,73 @@ import FormLabel from "@mui/material/FormLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Divider from "@mui/material/Divider";
 import { TextField } from "@mui/material";
+import URL from "../../Services/URL";
 
 class Tools extends Component {
+  state = {
+    json: null,
+    jsonAns: null,
+    option: "0",
+  };
+
+  handleChange(value) {
+    this.setState({ json: value.replace("\\", "") });
+  }
+
+  handleChangeRadio(value) {
+    this.setState({ option: value });
+  }
+
+  pretty() {
+    axios({
+      headers: { "Content-Type": "text/plain" },
+      method: "POST",
+      url: URL + "/api/prettyJSON",
+      data: this.state.json,
+    }).then((response) => {
+      this.setState({ jsonAns: response.data });
+    });
+  }
+
+  minify() {
+    axios({
+      headers: { "Content-Type": "text/plain" },
+      method: "POST",
+      url: URL + "/api/minifyJSON",
+      data: this.state.json,
+    }).then((response) => {
+      this.setState({ jsonAns: response.data });
+    });
+  }
+
   render() {
     return (
       <div>
         <Header tools />
         <div className="tools">
           <div className="other-column">
-            <FormControl component="fieldset">
+            <FormControl
+              component="fieldset"
+              onChange={(event) => {
+                this.handleChangeRadio(event.target.value);
+              }}
+            >
               <FormLabel component="legend">Options</FormLabel>
               <RadioGroup
                 aria-label="gender"
                 defaultValue="Minifikuj"
                 name="radio-buttons-group"
+                value={this.state.option}
               >
                 <FormControlLabel
-                  value="Minifikuj"
+                  value={0}
                   control={<Radio />}
                   label="Minifikuj"
                 />
                 <FormControlLabel
-                  value="Deminifikuj"
+                  value={1}
                   control={<Radio />}
-                  label="Deminifikuj"
+                  label="Pretty"
                 />
               </RadioGroup>
             </FormControl>
@@ -51,6 +95,9 @@ class Tools extends Component {
               multiline
               rows={10}
               fullWidth
+              onChange={(event) => {
+                this.handleChange(event.target.value);
+              }}
             />
           </div>
           <div className="column">
@@ -60,11 +107,28 @@ class Tools extends Component {
               label="Output"
               multiline
               rows={10}
-              value={""}
+              value={
+                this.state.jsonAns
+                  ? this.state.option === "1"
+                    ? JSON.stringify(this.state.jsonAns, null, 2)
+                    : JSON.stringify(this.state.jsonAns)
+                  : ""
+              }
               fullWidth
             />
           </div>
         </div>
+        <button
+          onClick={() => {
+            if (this.state.option === "0") {
+              this.minify();
+            } else {
+              this.pretty();
+            }
+          }}
+        >
+          {this.state.option === "0" ? "Minifikuj" : "Pretty"}
+        </button>
       </div>
     );
   }
