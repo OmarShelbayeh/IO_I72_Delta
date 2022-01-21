@@ -20,7 +20,7 @@ public class CompareJSON extends Decorator {
     }
 
     @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
-    public class CompareClass{
+    public static class CompareClass{
         private String firstJSON;
         private String secondJSON;
     }
