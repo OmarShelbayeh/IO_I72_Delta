@@ -34,7 +34,7 @@ public class MinifyJSON extends Decorator {
     }
 
     @Override
-    public ArrayList<Integer> operation(String firstString, String secondString) {
+    public ArrayList<Integer> operation(CompareJSON.CompareClass compareClass) {
         return null;
     }
 

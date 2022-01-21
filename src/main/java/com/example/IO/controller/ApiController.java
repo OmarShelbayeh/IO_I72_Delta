@@ -31,8 +31,8 @@ public class ApiController {
     }
 
     @GetMapping("/compareJSONs")
-    public ArrayList<Integer> compareJSONs(@RequestBody String firstJSON, @RequestBody String secondJSON){
-        return new CompareJSON(component).operation(firstJSON, secondJSON);
+    public ArrayList<Integer> compareJSONs(@RequestBody CompareJSON.CompareClass compareClass){
+        return new CompareJSON(component).operation(compareClass);
     }
 
     @GetMapping("/transformJSONWithoutSpecificProperties")
