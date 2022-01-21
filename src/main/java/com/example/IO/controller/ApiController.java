@@ -2,7 +2,6 @@ package com.example.IO.controller;
 
 import com.example.IO.model.Component;
 import com.example.IO.service.*;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
