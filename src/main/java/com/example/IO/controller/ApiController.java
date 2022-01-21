@@ -13,19 +13,10 @@ import java.util.ArrayList;
 @RequestMapping(path = "api")
 public class ApiController {
 
-
-    private final MinifyJSON minifyJSON;
-    private final PrettyJSON prettyJSON;
-//    private final CompareJSON compareJSON;
-    private final TransformJSONSpecificProperties transformJSONSpecificProperties;
     private final TransformJSONWithoutSpecificProperties transformJSONWithoutSpecificProperties;
     private Component component;
     @Autowired
-    public ApiController(MinifyJSON minifyJSON, PrettyJSON prettyJSON, TransformJSONSpecificProperties transformJSONSpecificProperties, TransformJSONWithoutSpecificProperties transformJSONWithoutSpecificProperties) {
-        this.minifyJSON = minifyJSON;
-        this.prettyJSON = prettyJSON;
-//        this.compareJSON = compareJSON;
-        this.transformJSONSpecificProperties = transformJSONSpecificProperties;
+    public ApiController(TransformJSONWithoutSpecificProperties transformJSONWithoutSpecificProperties) {
         this.transformJSONWithoutSpecificProperties = transformJSONWithoutSpecificProperties;
     }
 
