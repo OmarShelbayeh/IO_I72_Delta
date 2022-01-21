@@ -40,7 +40,7 @@ public class ApiController {
     }
 
     @GetMapping("/compareJSONs")
-    public ArrayList<Integer> compareJSONs(@RequestParam String firstJSON, @RequestParam String secondJSON){
+    public ArrayList<Integer> compareJSONs(@RequestBody String firstJSON, @RequestBody String secondJSON){
         return new CompareJSON(component).operation(firstJSON, secondJSON);
     }
 
