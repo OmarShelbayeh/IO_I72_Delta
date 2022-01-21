@@ -35,7 +35,7 @@ public class PrettyJSON extends Decorator {
     }
 
     @Override
-    public ArrayList<Integer> operation(String firstJSON, String secondJSON) {
+    public ArrayList<Integer> operation(CompareJSON.CompareClass compareClass) {
         return null;
     }
 
