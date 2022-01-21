@@ -17,7 +17,7 @@ class TransformJSONWithoutSpecificPropertiesTest {
     @BeforeEach
     void setUp() {
         transformJSONWithoutSpecificProperties = new TransformJSONWithoutSpecificProperties(component);
-        json = "[{\"fruit\":{\"Apple\"},\"size\":\"Large\",\"color\":\"Red\"}]";
+        json = "[{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}]";
     }
 
     @Test
