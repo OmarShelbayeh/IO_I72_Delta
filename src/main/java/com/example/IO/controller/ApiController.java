@@ -13,46 +13,35 @@ import java.util.ArrayList;
 @RequestMapping(path = "api")
 public class ApiController {
 
-
-    private final MinifyJSON minifyJSON;
-    private final PrettyJSON prettyJSON;
-//    private final CompareJSON compareJSON;
-    private final TransformJSONSpecificProperties transformJSONSpecificProperties;
     private final TransformJSONWithoutSpecificProperties transformJSONWithoutSpecificProperties;
     private Component component;
     @Autowired
-    public ApiController(MinifyJSON minifyJSON, PrettyJSON prettyJSON, TransformJSONSpecificProperties transformJSONSpecificProperties, TransformJSONWithoutSpecificProperties transformJSONWithoutSpecificProperties) {
-        this.minifyJSON = minifyJSON;
-        this.prettyJSON = prettyJSON;
-//        this.compareJSON = compareJSON;
-        this.transformJSONSpecificProperties = transformJSONSpecificProperties;
+    public ApiController(TransformJSONWithoutSpecificProperties transformJSONWithoutSpecificProperties) {
         this.transformJSONWithoutSpecificProperties = transformJSONWithoutSpecificProperties;
     }
 
-    @GetMapping("/prettyJSON")
+    @PostMapping("/prettyJSON")
     public String prettyJSON(@RequestBody String json){
         return new PrettyJSON(component).operation(json);
     }
 
-    @GetMapping("/minifyJSON")
+    @PostMapping("/minifyJSON")
     public String minifyJSON(@RequestBody String json){
         return new MinifyJSON(component).operation(json);
     }
 
-    @GetMapping("/compareJSONs")
-    public ArrayList<Integer> compareJSONs(@RequestBody String firstJSON, @RequestBody String secondJSON){
-        return new CompareJSON(component).operation(firstJSON, secondJSON);
+    @PostMapping("/compareJSONs")
+    public ArrayList<Integer> compareJSONs(@RequestBody CompareJSON.CompareClass compareClass){
+        return new CompareJSON(component).operation(compareClass);
     }
 
-    @GetMapping("/transformJSONWithoutSpecificProperties")
+    @PostMapping("/transformJSONWithoutSpecificProperties")
     public String transformJSONWithoutSpecificProperties(@RequestBody String json, @RequestParam ArrayList<String> specificProperties){
         return transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(json, specificProperties);
     }
 
-    @GetMapping("/transformJSONSpecificProperties")
+    @PostMapping("/transformJSONSpecificProperties")
     public String transformJSONWSpecificProperties(@RequestParam String json, @RequestParam ArrayList<String> specificProperties){
         return "";
     }
-
-
 }

@@ -3,6 +3,7 @@ package com.example.IO.service;
 
 import com.example.IO.model.Component;
 import com.example.IO.model.Decorator;
+import lombok.*;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +19,14 @@ public class CompareJSON extends Decorator {
         super(component);
     }
 
-    public ArrayList<Integer> compareJSON(String firstJSON, String secondJSON) {
-        String[] firstJSONArray = firstJSON.split("\n");
-        String[] secondJSONArray = secondJSON.split("\n");
+    @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
+    public static class CompareClass{
+        private String firstJSON;
+        private String secondJSON;
+    }
+    public ArrayList<Integer> compareJSON(CompareClass compareClass) {
+        String[] firstJSONArray = compareClass.firstJSON.split("\n");
+        String[] secondJSONArray = compareClass.secondJSON.split("\n");
         int length = Math.min(firstJSONArray.length, secondJSONArray.length);
         ArrayList<Integer> returnArrayList = new ArrayList<>();
         for (int i = 0; i < length; i++) {
@@ -40,8 +46,8 @@ public class CompareJSON extends Decorator {
     }
 
     @Override
-    public ArrayList<Integer> operation(String firstJSON, String secondJSON) {
-        return compareJSON(firstJSON, secondJSON);
+    public ArrayList<Integer> operation(CompareClass compareClass) {
+        return compareJSON(compareClass);
     }
 
     @Override
