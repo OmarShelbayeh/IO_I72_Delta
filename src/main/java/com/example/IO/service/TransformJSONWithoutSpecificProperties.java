@@ -2,6 +2,7 @@ package com.example.IO.service;
 
 import com.example.IO.model.Component;
 import com.example.IO.model.Decorator;
+import lombok.*;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +16,24 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         super(component);
     }
 
-    public String transformJSONWithoutSpecificProperties(String json, ArrayList<String> specificProperties){
-        for (String specificProperty : specificProperties) {
-            json = transformJSONWithoutSpecificProperty(json, specificProperty);
-        }
-        return json;
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @ToString
+    public static class CompareClass {
+        private String json;
+        private ArrayList<String> specificProperties;
     }
-    public String transformJSONWithoutSpecificProperty(String json, String specificProperties){
+
+    public String transformJSONWithoutSpecificProperties(CompareClass compareClass) {
+        for (String specificProperty : compareClass.getSpecificProperties()) {
+            compareClass.setJson(transformJSONWithoutSpecificProperty(compareClass.getJson(), specificProperty));
+        }
+        return new PrettyJSON(component).operation(compareClass.getJson());
+    }
+
+    public String transformJSONWithoutSpecificProperty(String json, String specificProperties) {
         int i = 0;
         int j;
         int code_size = json.length();
@@ -39,8 +51,13 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
                         bracket++;
                         start = true;
                     }
-                    if (json.toCharArray()[k] == '}' || json.toCharArray()[k] == ']')
+                    if (json.toCharArray()[k] == '}' || json.toCharArray()[k] == ']') {
                         bracket--;
+                        start = true;
+                    }
+                    if (json.toCharArray()[k] == ',' && bracket == 0)
+                        break;
+
                     k++;
                 }
                 StringBuilder code2 = new StringBuilder();
@@ -58,18 +75,30 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         return json;
     }
 
+    /**
+     * @param json - json as string
+     * @return some string
+     */
     @Override
     public String operation(String json) {
         return null;
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return Integer ArrayList
+     */
     @Override
     public ArrayList<Integer> operation(CompareJSON.CompareClass compareClass) {
         return null;
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return some string
+     */
     @Override
-    public String operation(String json, ArrayList<String> specificProperties) {
-        return transformJSONWithoutSpecificProperties(json, specificProperties);
+    public String operation(CompareClass compareClass) {
+        return transformJSONWithoutSpecificProperties(compareClass);
     }
 }
