@@ -3,6 +3,7 @@ package com.example.IO.service;
 import com.example.IO.model.Component;
 import com.example.IO.model.Decorator;
 
+import lombok.*;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,9 @@ public class TransformJSONSpecificProperties extends Decorator {
         super(component);
     }
 
-    public String transformJSONSpecificProperties(String json, String[] specificProperties){
-        return usun_wszystko_poza_podanymi(json, specificProperties);
+    public String transformJSONSpecificProperties(TransformJSONWithoutSpecificProperties.CompareClass compareClass){
+        String[] strings = compareClass.getSpecificProperties().toArray(new String[0]);
+        return usun_wszystko_poza_podanymi(compareClass.getJson(), strings);
     }
 
     /**
@@ -283,6 +285,7 @@ public class TransformJSONSpecificProperties extends Decorator {
         return json;
     }
 
+
     @Override
     public String operation(String json) {
         return null;
@@ -294,12 +297,7 @@ public class TransformJSONSpecificProperties extends Decorator {
     }
 
     @Override
-    public String operation(String json, ArrayList<String> specificProperties) {
-        return null;
-    }
-
-    @Override
-    public String operation(String json, String[] specificProperties) {
-        return transformJSONSpecificProperties(json, specificProperties);
+    public String operation(TransformJSONWithoutSpecificProperties.CompareClass compareClass) {
+        return transformJSONSpecificProperties(compareClass);
     }
 }

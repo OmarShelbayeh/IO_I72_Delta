@@ -40,12 +40,7 @@ public class PrettyJSON extends Decorator {
     }
 
     @Override
-    public String operation(String json, ArrayList<String> specificProperties) {
-        return null;
-    }
-
-    @Override
-    public String operation(String json, String[] specificProperties) {
+    public String operation(TransformJSONWithoutSpecificProperties.CompareClass compareClass) {
         return null;
     }
 }

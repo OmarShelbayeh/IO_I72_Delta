@@ -39,24 +39,30 @@ public class CompareJSON extends Decorator {
         return returnArrayList;
     }
 
-
+    /**
+     * @param json - json as string
+     * @return some string
+     */
     @Override
     public String operation(String json) {
         return null;
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return Integer ArrayList
+     */
     @Override
     public ArrayList<Integer> operation(CompareClass compareClass) {
         return compareJSON(compareClass);
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return some string
+     */
     @Override
-    public String operation(String json, ArrayList<String> specificProperties) {
-        return null;
-    }
-
-    @Override
-    public String operation(String json, String[] specificProperties) {
+    public String operation(TransformJSONWithoutSpecificProperties.CompareClass compareClass) {
         return null;
     }
 }
