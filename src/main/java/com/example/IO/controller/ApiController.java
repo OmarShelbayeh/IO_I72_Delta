@@ -37,11 +37,12 @@ public class ApiController {
 
     @PostMapping("/transformJSONWithoutSpecificProperties")
     public String transformJSONWithoutSpecificProperties(@RequestBody String json, @RequestParam ArrayList<String> specificProperties){
-        return transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(json, specificProperties);
+        return new TransformJSONWithoutSpecificProperties(component).operation(json, specificProperties);
+
     }
 
     @PostMapping("/transformJSONSpecificProperties")
-    public String transformJSONWSpecificProperties(@RequestParam String json, @RequestParam ArrayList<String> specificProperties){
-        return "";
+    public String transformJSONWSpecificProperties(@RequestParam String json, @RequestParam String[] specificProperties){
+        return new TransformJSONSpecificProperties(component).operation(json, specificProperties);
     }
 }

@@ -54,4 +54,9 @@ public class CompareJSON extends Decorator {
     public String operation(String json, ArrayList<String> specificProperties) {
         return null;
     }
+
+    @Override
+    public String operation(String json, String[] specificProperties) {
+        return null;
+    }
 }

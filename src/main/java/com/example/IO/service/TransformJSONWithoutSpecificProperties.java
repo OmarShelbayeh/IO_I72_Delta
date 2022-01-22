@@ -72,4 +72,9 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
     public String operation(String json, ArrayList<String> specificProperties) {
         return transformJSONWithoutSpecificProperties(json, specificProperties);
     }
+
+    @Override
+    public String operation(String json, String[] specificProperties) {
+        return null;
+    }
 }
