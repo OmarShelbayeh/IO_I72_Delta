@@ -53,21 +53,28 @@ class TransformJSONWithoutSpecificPropertiesTest {
                         specificProperties);
         assertEquals("[{}]", transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(compareClass));
     }
+
     @Test
     void transformJSONWithoutSpecificProperties4() {
+        ArrayList<String> specificProperties = new ArrayList<>();
+        specificProperties.add("type");
+        TransformJSONWithoutSpecificProperties.CompareClass  compareClass =
+                new TransformJSONWithoutSpecificProperties.CompareClass(
+                        "{\"id\":\"0001\",\"type\":\"donut\",\"name\":\"Cake\",\"ppu\":0.55,\"batters\":{\"batter\":[{\"id\":\"1001\",\"type\":\"Regular\"},{\"id\":\"1002\",\"type\":\"Chocolate\"},{\"id\":\"1003\",\"type\":\"Blueberry\"},{\"id\":\"1004\",\"type\":\"Devil's Food\"}]},\"topping\":[{\"id\":\"5001\",\"type\":\"None\"},{\"id\":\"5002\",\"type\":\"Glazed\"},{\"id\":\"5005\",\"type\":\"Sugar\"},{\"id\":\"5007\",\"type\":\"Powdered Sugar\"},{\"id\":\"5006\",\"type\":\"Chocolate with Sprinkles\"},{\"id\":\"5003\",\"type\":\"Chocolate\"},{\"id\":\"5004\",\"type\":\"Maple\"}]}",
+                        specificProperties);
+        assertEquals("{\"id\":\"0001\",\"name\":\"Cake\",\"ppu\":0.55,\"batters\":{\"batter\":[{\"id\":\"1001\",{\"id\":\"1002\",{\"id\":\"1003\",{\"id\":\"1004\",]},\"topping\":[{\"id\":\"5001\",{\"id\":\"5002\",{\"id\":\"5005\",{\"id\":\"5007\",{\"id\":\"5006\",{\"id\":\"5003\",{\"id\":\"5004\",]}", transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(compareClass));
+    }
+
+    @Test
+    void transformJSONWithoutSpecificProperties5() {
         ArrayList<String> specificProperties = new ArrayList<>();
         specificProperties.add("fruit");
         specificProperties.add("size");
         specificProperties.add("color");
         TransformJSONWithoutSpecificProperties.CompareClass  compareClass =
                 new TransformJSONWithoutSpecificProperties.CompareClass(
-                        "{ }",
+                        "[{}]",
                         specificProperties);
-        assertEquals("{ }", transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(compareClass));
+        assertEquals("[{}]", transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(compareClass));
     }
-
-    @Test
-    void transformJSONWithoutSpecificProperty() {
-    }
-
 }
