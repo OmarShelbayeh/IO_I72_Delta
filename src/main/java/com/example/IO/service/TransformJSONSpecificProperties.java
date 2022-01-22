@@ -19,7 +19,7 @@ public class TransformJSONSpecificProperties extends Decorator {
 
     public String transformJSONSpecificProperties(TransformJSONWithoutSpecificProperties.CompareClass compareClass){
         String[] strings = compareClass.getSpecificProperties().toArray(new String[0]);
-        return usun_wszystko_poza_podanymi(compareClass.getJson(), strings);
+        return usun_wszystko_poza_podanymi(new MinifyJSON(component).operation(compareClass.getJson()), strings);
     }
 
     /**

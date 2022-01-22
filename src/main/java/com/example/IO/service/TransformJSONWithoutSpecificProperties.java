@@ -16,19 +16,24 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         super(component);
     }
 
-    @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
-    public static class CompareClass{
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @ToString
+    public static class CompareClass {
         private String json;
         private ArrayList<String> specificProperties;
     }
 
-    public String transformJSONWithoutSpecificProperties(CompareClass compareClass){
+    public String transformJSONWithoutSpecificProperties(CompareClass compareClass) {
         for (String specificProperty : compareClass.getSpecificProperties()) {
             compareClass.setJson(transformJSONWithoutSpecificProperty(compareClass.getJson(), specificProperty));
         }
         return compareClass.getJson();
     }
-    public String transformJSONWithoutSpecificProperty(String json, String specificProperties){
+
+    public String transformJSONWithoutSpecificProperty(String json, String specificProperties) {
         int i = 0;
         int j;
         int code_size = json.length();
@@ -46,8 +51,13 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
                         bracket++;
                         start = true;
                     }
-                    if (json.toCharArray()[k] == '}' || json.toCharArray()[k] == ']')
+                    if (json.toCharArray()[k] == '}' || json.toCharArray()[k] == ']') {
                         bracket--;
+                        start = true;
+                    }
+                    if (json.toCharArray()[k] == ',' && bracket == 0)
+                        break;
+
                     k++;
                 }
                 StringBuilder code2 = new StringBuilder();
