@@ -7,9 +7,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .tools .column {
@@ -48,6 +45,17 @@
   width: 50%;
 }
 
+.tools .button-div {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 12px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
 .tools .other-column {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -77,5 +85,87 @@
 
 .tools .other-column .check p {
   margin-left: 8px;
+}
+
+.lines {
+  padding: 48px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.lines .column {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.lines .column .text {
+  margin-top: 48px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.lines .column .line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  color: black;
+  padding: 0px 8px;
+  overflow-x: auto;
+}
+
+.lines .column .line .line-number {
+  width: 5%;
+}
+
+.lines .column .line .line-text {
+  width: 95%;
+}
+
+.button {
+  width: 200px;
+  border: 1px solid #f37757;
+  padding: 10px;
+  border-radius: 32px;
+  background-color: transparent;
+  color: #f37757;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.button:hover {
+  background-color: #f37757;
+  color: white;
+}
+
+pre {
+  margin: 0;
 }
 /*# sourceMappingURL=Tools.css.map */

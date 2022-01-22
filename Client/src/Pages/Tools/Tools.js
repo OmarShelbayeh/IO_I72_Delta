@@ -87,6 +87,20 @@ class Tools extends Component {
               </RadioGroup>
             </FormControl>
             <Divider />
+            <div className="button-div">
+              <button
+                className="button"
+                onClick={() => {
+                  if (this.state.option === "0") {
+                    this.minify();
+                  } else {
+                    this.pretty();
+                  }
+                }}
+              >
+                {this.state.option === "0" ? "Minifikuj" : "Pretty"}
+              </button>
+            </div>
           </div>
           <div className="column">
             <TextField
@@ -110,25 +124,14 @@ class Tools extends Component {
               value={
                 this.state.jsonAns
                   ? this.state.option === "1"
-                    ? JSON.stringify(this.state.jsonAns, null, 2)
+                    ? JSON.stringify(this.state.jsonAns, 5, 2)
                     : JSON.stringify(this.state.jsonAns)
-                  : ""
+                  : this.state.jsonAns === 0 ? "Wrong JSON" : ""
               }
               fullWidth
             />
           </div>
         </div>
-        <button
-          onClick={() => {
-            if (this.state.option === "0") {
-              this.minify();
-            } else {
-              this.pretty();
-            }
-          }}
-        >
-          {this.state.option === "0" ? "Minifikuj" : "Pretty"}
-        </button>
       </div>
     );
   }

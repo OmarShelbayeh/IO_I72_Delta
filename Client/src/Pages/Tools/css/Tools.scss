@@ -3,7 +3,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   .column {
     display: flex;
     justify-content: flex-start;
@@ -20,6 +19,13 @@
     padding: 8px;
     width: 50%;
   }
+  .button-div {
+    width: 100%;
+    display: flex;
+    margin-top: 12px;
+    justify-content: flex-start;
+  }
+
   .other-column {
     display: flex;
     justify-content: flex-start;
@@ -35,4 +41,58 @@
       }
     }
   }
+}
+
+.lines {
+  padding: 48px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .column {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    .text {
+      margin-top: 48px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    .line {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+      color: black;
+      padding: 0px 8px;
+      overflow-x: auto;
+      .line-number {
+        width: 5%;
+      }
+      .line-text {
+        width: 95%;
+      }
+    }
+  }
+}
+
+.button {
+  width: 200px;
+  border: 1px solid #f37757;
+  padding: 10px;
+  border-radius: 32px;
+  background-color: transparent;
+  color: #f37757;
+  transition: all 0.4s;
+}
+
+.button:hover {
+  background-color: #f37757;
+  color: white;
+}
+
+pre {
+  margin: 0;
 }
