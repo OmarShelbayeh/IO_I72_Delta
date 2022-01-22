@@ -53,6 +53,18 @@ class TransformJSONWithoutSpecificPropertiesTest {
                         specificProperties);
         assertEquals("[{}]", transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(compareClass));
     }
+    @Test
+    void transformJSONWithoutSpecificProperties4() {
+        ArrayList<String> specificProperties = new ArrayList<>();
+        specificProperties.add("fruit");
+        specificProperties.add("size");
+        specificProperties.add("color");
+        TransformJSONWithoutSpecificProperties.CompareClass  compareClass =
+                new TransformJSONWithoutSpecificProperties.CompareClass(
+                        "{ }",
+                        specificProperties);
+        assertEquals("{ }", transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(compareClass));
+    }
 
     @Test
     void transformJSONWithoutSpecificProperty() {
