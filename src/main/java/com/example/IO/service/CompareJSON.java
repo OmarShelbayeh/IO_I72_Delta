@@ -20,7 +20,7 @@ public class CompareJSON extends Decorator {
     }
 
     @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
-    public class CompareClass{
+    public static class CompareClass{
         private String firstJSON;
         private String secondJSON;
     }
@@ -39,19 +39,30 @@ public class CompareJSON extends Decorator {
         return returnArrayList;
     }
 
-
+    /**
+     * @param json - json as string
+     * @return some string
+     */
     @Override
     public String operation(String json) {
         return null;
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return Integer ArrayList
+     */
     @Override
     public ArrayList<Integer> operation(CompareClass compareClass) {
         return compareJSON(compareClass);
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return some string
+     */
     @Override
-    public String operation(String json, ArrayList<String> specificProperties) {
+    public String operation(TransformJSONWithoutSpecificProperties.CompareClass compareClass) {
         return null;
     }
 }

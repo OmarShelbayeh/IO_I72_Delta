@@ -28,18 +28,30 @@ public class MinifyJSON extends Decorator {
         }
     }
 
+    /**
+     * @param json - json as string
+     * @return some string
+     */
     @Override
-    public String operation(String jsonString) {
-        return minifyJSON(jsonString);
+    public String operation(String json) {
+        return minifyJSON(json);
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return Integer ArrayList
+     */
     @Override
     public ArrayList<Integer> operation(CompareJSON.CompareClass compareClass) {
         return null;
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return some string
+     */
     @Override
-    public String operation(String json, ArrayList<String> specificProperties) {
+    public String operation(TransformJSONWithoutSpecificProperties.CompareClass compareClass) {
         return null;
     }
 }

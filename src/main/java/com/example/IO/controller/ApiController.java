@@ -20,30 +20,29 @@ public class ApiController {
         this.transformJSONWithoutSpecificProperties = transformJSONWithoutSpecificProperties;
     }
 
-    @GetMapping("/prettyJSON")
+    @PostMapping("/prettyJSON")
     public String prettyJSON(@RequestBody String json){
         return new PrettyJSON(component).operation(json);
     }
 
-    @GetMapping("/minifyJSON")
+    @PostMapping("/minifyJSON")
     public String minifyJSON(@RequestBody String json){
         return new MinifyJSON(component).operation(json);
     }
 
-    @GetMapping("/compareJSONs")
+    @PostMapping("/compareJSONs")
     public ArrayList<Integer> compareJSONs(@RequestBody CompareJSON.CompareClass compareClass){
         return new CompareJSON(component).operation(compareClass);
     }
 
-    @GetMapping("/transformJSONWithoutSpecificProperties")
-    public String transformJSONWithoutSpecificProperties(@RequestBody String json, @RequestParam ArrayList<String> specificProperties){
-        return transformJSONWithoutSpecificProperties.transformJSONWithoutSpecificProperties(json, specificProperties);
+    @PostMapping("/transformJSONWithoutSpecificProperties")
+    public String transformJSONWithoutSpecificProperties(@RequestBody TransformJSONWithoutSpecificProperties.CompareClass compareClass){
+        return new TransformJSONWithoutSpecificProperties(component).operation(compareClass);
+
     }
 
-    @GetMapping("/transformJSONSpecificProperties")
-    public String transformJSONWSpecificProperties(@RequestParam String json, @RequestParam ArrayList<String> specificProperties){
-        return "";
+    @PostMapping("/transformJSONSpecificProperties")
+    public String transformJSONWSpecificProperties(@RequestBody TransformJSONWithoutSpecificProperties.CompareClass compareClass){
+        return new TransformJSONSpecificProperties(component).operation(compareClass);
     }
-
-
 }
