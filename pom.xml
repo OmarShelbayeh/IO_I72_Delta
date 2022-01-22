@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>JSON-Tools</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>1.0.4</version>
     <packaging>jar</packaging>
     <name>JSON-Tools</name>
     <description>JSON-Tools</description>
