@@ -47,4 +47,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       
+    - name: Generate JAR with Maven
+      run: mvn package
+      
 
