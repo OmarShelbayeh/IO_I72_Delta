@@ -54,7 +54,13 @@ public class TransformJSONSpecificProperties extends Decorator {
                     }
                     if (json.toCharArray()[k] == ',' && bracket == 0)
                         break;
-
+                    if (bracket < 0){
+                        k--;
+                        if (json.toCharArray()[i-2] == ',')
+                        {
+                            json = json.substring(0,i-2)+' '+json.substring(i-1);
+                        }
+                    }
                     k++;
                 }
                 StringBuilder code2 = new StringBuilder();
@@ -69,6 +75,12 @@ public class TransformJSONSpecificProperties extends Decorator {
             }
             i++;
         }
+        int brackets_only = 1;
+        for (int l=0; l<json.length(); l++)
+            if (json.toCharArray()[l] != '[' && json.toCharArray()[l] != ']' && json.toCharArray()[l] != '{' && json.toCharArray()[l] != '}')
+                brackets_only = 0;
+        if (brackets_only == 1)
+            json = "[{}]";
         return json;
     }
 
@@ -256,7 +268,7 @@ public class TransformJSONSpecificProperties extends Decorator {
      * @param specificProperties - features that need to be removed from all features
      * @return all features separated by space without given features and features that contains them
      */
-    public static String zachowaj_podane0(String json, String[] specificProperties)
+    public static String zachowajPodane(String json, String[] specificProperties)
     {
         String Structure = structure(json);
         String Cechy_ktore_musza_zostac = "";
@@ -279,7 +291,7 @@ public class TransformJSONSpecificProperties extends Decorator {
      */
     public static String usun_wszystko_poza_podanymi(String json, String[] specificProperties)
     {
-        String To_Remove_string = zachowaj_podane0(json, specificProperties);
+        String To_Remove_string = zachowajPodane(json, specificProperties);
         String[] To_Remove = To_Remove_string.split(" ");
         for (int i=0; i<To_Remove.length; i++) if (To_Remove[i].length() > 0)
             json = usuwanie(json, To_Remove[i]);
