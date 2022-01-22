@@ -30,7 +30,7 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         for (String specificProperty : compareClass.getSpecificProperties()) {
             compareClass.setJson(transformJSONWithoutSpecificProperty(compareClass.getJson(), specificProperty));
         }
-        return operation(compareClass.getJson());
+        return compareClass.getJson();
     }
 
     public String transformJSONWithoutSpecificProperty(String json, String specificProperties) {
