@@ -136,5 +136,13 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/OmarShelbayeh/IO_I72_Delta</url>
+        </repository>
+    </distributionManagement>
+
 
 </project>
