@@ -16,7 +16,6 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         super(component);
     }
 
-
     @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
     public static class CompareClass{
         private String json;
@@ -66,19 +65,30 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         return json;
     }
 
+    /**
+     * @param json - json as string
+     * @return some string
+     */
     @Override
     public String operation(String json) {
         return null;
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return Integer ArrayList
+     */
     @Override
     public ArrayList<Integer> operation(CompareJSON.CompareClass compareClass) {
         return null;
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return some string
+     */
     @Override
     public String operation(CompareClass compareClass) {
         return transformJSONWithoutSpecificProperties(compareClass);
     }
-
 }

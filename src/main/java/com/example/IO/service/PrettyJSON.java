@@ -29,16 +29,28 @@ public class PrettyJSON extends Decorator {
         }
     }
 
+    /**
+     * @param json - json as string
+     * @return some string
+     */
     @Override
     public String operation(String json) {
         return prettyJSON(json);
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return Integer ArrayList
+     */
     @Override
     public ArrayList<Integer> operation(CompareJSON.CompareClass compareClass) {
         return null;
     }
 
+    /**
+     * @param compareClass - class compareClass
+     * @return some string
+     */
     @Override
     public String operation(TransformJSONWithoutSpecificProperties.CompareClass compareClass) {
         return null;
