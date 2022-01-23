@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 /**
  * Class responsible for minifying a given JSON.
+ *
  * @version 1.0
  */
 @Service
@@ -18,6 +19,7 @@ public class MinifyJSON extends Decorator {
 
     /**
      * Constructor
+     *
      * @param component component instance
      */
     @Lazy
@@ -27,6 +29,7 @@ public class MinifyJSON extends Decorator {
 
     /**
      * A Java function that transforms a nested JSON into a minified JSON.
+     *
      * @param json String representation of a certain JSON.
      * @return 0 if a bad JSON was sent or an error occurs. the Minified JSON if no error occurs.
      */
@@ -35,8 +38,7 @@ public class MinifyJSON extends Decorator {
         try {
             JsonNode jsonNode = objectMapper.readValue(json, JsonNode.class);
             return jsonNode.toString();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return "0";
         }
     }

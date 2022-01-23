@@ -11,12 +11,14 @@ import java.util.ArrayList;
 
 /**
  * Class responsible for nesting a given JSON.
+ *
  * @version 1.0
  */
 @Service
 public class PrettyJSON extends Decorator {
     /**
      * Constructor
+     *
      * @param component - component instance
      */
     @Lazy
@@ -26,16 +28,16 @@ public class PrettyJSON extends Decorator {
 
     /**
      * A Java function the transforms a minified JSON into a nested JSON.
+     *
      * @param json String representation of a certain JSON
      * @return 0 if a bad JSON was sent or an error occurs. the nester JSON if no error occurs.
      */
-    public String prettyJSON(String json){
+    public String prettyJSON(String json) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             JsonNode jsonNode = objectMapper.readValue(json, JsonNode.class);
             return jsonNode.toPrettyString();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             return "0";
         }
     }

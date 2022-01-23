@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 /**
  * Java class that's responsible for comparing 2 JSONS
+ *
  * @version 1.0
  */
 @Service
@@ -19,6 +20,7 @@ public class CompareJSON extends Decorator {
 
     /**
      * Constructor
+     *
      * @param component - component instance
      */
 
@@ -28,18 +30,23 @@ public class CompareJSON extends Decorator {
     }
 
     /**
-     *  Helper class that has two variables
-     *      firstJSON (String) indicating the first JSON to compare
-     *      secondJSON (String) indication the second JSON to compare
+     * Helper class that has two variables
+     * firstJSON (String) indicating the first JSON to compare
+     * secondJSON (String) indication the second JSON to compare
      */
-    @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
-    public static class CompareClass{
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @ToString
+    public static class CompareClass {
         private String firstJSON;
         private String secondJSON;
     }
 
     /**
-     * A function that compared 2 JSONs and returns an ArrayList including line numbers where differences were found.
+     * A Java function that finds all the differences between two JSON objects.
+     *
      * @param compareClass - Helper class that includes two variables, firstJSON and secondJSON.
      * @return ArrayList including the numbers of the lines where differences were found.
      */

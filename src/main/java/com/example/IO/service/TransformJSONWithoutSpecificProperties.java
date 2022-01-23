@@ -8,10 +8,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+/**
+ * Java class responsible for deleting the chosen properties of a given JSON.
+ *
+ * @version 1.0
+ */
+
 @Service
 public class TransformJSONWithoutSpecificProperties extends Decorator {
     /**
      * Constructor
+     *
      * @param component component instance
      */
     @Lazy
@@ -20,18 +27,27 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
     }
 
     /**
-     * CompareClass Help class including representation JSON as String and ArrayList with specific properties
+     * Helper class that includes two variables
+     * json, a string containing a minified JSON object.
+     * specificProperties, an ArrayList containing specific properties
      */
-    @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
+    @Getter
+    @Setter
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @ToString
     public static class CompareClass {
         private String json;
         private ArrayList<String> specificProperties;
     }
 
     /**
+     * A Java function that transforms a given minified JSON object by deleting all the unwanted properties.
      *
-     * @param compareClass Help class including representation JSON as String and ArrayList with specific properties
-     * @return json with given features
+     * @param compareClass Helper class containing two variables
+     *                     json, a string containing a minified JSON object.
+     *                     specificProperties, an ArrayList containing all the properties that should be deleted.
+     * @return a string containing a transformed minified JSON object, after deleting all chosen properties.
      */
     public String transformJSONWithoutSpecificProperties(CompareClass compareClass) {
         for (String specificProperty : compareClass.getSpecificProperties()) {
@@ -41,10 +57,11 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
     }
 
     /**
+     * A Java function that deletes a certain property from a minified JSON object.
      *
-     * @param json JSON representation in String
-     * @param specificProperties feature that need to be left (stay) (zostawione)
-     * @return json with given features
+     * @param json               a string containing a minified JSON object.
+     * @param specificProperties a string containing a JSON property that should be removed.
+     * @return a string containing a minified JSON object without the given property.
      */
     public String transformJSONWithoutSpecificProperty(String json, String specificProperties) {
         int i = 0;
@@ -86,7 +103,7 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
             i++;
         }
         int brackets_only = 1;
-        for (int l=0; l<json.length(); l++)
+        for (int l = 0; l < json.length(); l++)
             if (json.toCharArray()[l] != '[' && json.toCharArray()[l] != ']' && json.toCharArray()[l] != '{' && json.toCharArray()[l] != '}') {
                 brackets_only = 0;
                 break;
