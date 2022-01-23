@@ -11,7 +11,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * class responsible for compare 2 JSONs
+ * Java class that's responsible for comparing 2 JSONS
  * @version 1.0
  */
 @Service
@@ -28,7 +28,9 @@ public class CompareJSON extends Decorator {
     }
 
     /**
-     *  Help class including two strings firstJSON and secondJSON
+     *  Helper class that has two variables
+     *      firstJSON (String) indicating the first JSON to compare
+     *      secondJSON (String) indication the second JSON to compare
      */
     @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
     public static class CompareClass{
@@ -37,9 +39,9 @@ public class CompareJSON extends Decorator {
     }
 
     /**
-     *
-     * @param compareClass - Help class including two strings firstJSON and secondJSON
-     * @return ArrayList with numbers of difference line
+     * A function that compared 2 JSONs and returns an ArrayList including line numbers where differences were found.
+     * @param compareClass - Helper class that includes two variables, firstJSON and secondJSON.
+     * @return ArrayList including the numbers of the lines where differences were found.
      */
     public ArrayList<Integer> compareJSON(CompareClass compareClass) {
         String[] firstJSONArray = compareClass.firstJSON.split("\n");

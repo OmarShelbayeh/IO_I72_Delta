@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 /**
- * Class responsible for transform JSON including specific properties
+ * Class responsible for keeping only the chosen properties of a given JSON.
  * @version 1.0
  */
 @Service
@@ -24,9 +24,11 @@ public class TransformJSONSpecificProperties extends Decorator {
     }
 
     /**
-     *
-     * @param compareClass Help class including representation JSON as String and ArrayList with specific properties
-     * @return json with removed given features
+     * A Java function that transforms a JSON keeping only the chosen properties.
+     * @param compareClass Helper class including two variables,
+     *                     json, a string containing a minified JSON object.
+     *                     specificProperties, an ArrayList containing strings with the names of the specific properties in a JSON object that should be kept.
+     * @return transformed JSON object with only the chosen properties.
      */
     public String transformJSONSpecificProperties(TransformJSONWithoutSpecificProperties.CompareClass compareClass){
         String[] strings = compareClass.getSpecificProperties().toArray(new String[0]);
@@ -34,10 +36,10 @@ public class TransformJSONSpecificProperties extends Decorator {
     }
 
     /**
-     * Function removes given feature from json code
-     * @param json JSON representation in String
-     * @param specificProperties feature that need to be removed
-     * @return json with removed given feature
+     * A Java function that removes unwanted properties from a JSON object.
+     * @param json String representation of a minified JSON object.
+     * @param specificProperties an ArrayList containing all the properties that should be removed.
+     * @return a string containing a minified json after deleting all unwanted properties.
      */
     public String remove(String json, String specificProperties){
         int i = 0;
@@ -95,9 +97,9 @@ public class TransformJSONSpecificProperties extends Decorator {
             json = "[{}]";
         return json;
     }
-
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
-     * Returns structure of json in string
+     * A Java function that returns the structure of a JSON object in string
      * @param json JSON representation in String
      * @return string with structure of features in json code
      */

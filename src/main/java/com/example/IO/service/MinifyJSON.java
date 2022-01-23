@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 /**
- * Class responsible for make minify JSON
+ * Class responsible for minifying a given JSON.
  * @version 1.0
  */
 @Service
@@ -26,9 +26,9 @@ public class MinifyJSON extends Decorator {
     }
 
     /**
-     * Make unminify JSON to minify XD
-     * @param json JSON representation in String
-     * @return minify JSON
+     * A Java function that transforms a nested JSON into a minified JSON.
+     * @param json String representation of a certain JSON.
+     * @return 0 if a bad JSON was sent or an error occurs. the Minified JSON if no error occurs.
      */
     public String minifyJSON(String json) {
         ObjectMapper objectMapper = new ObjectMapper();

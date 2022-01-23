@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 /**
- * Class responsible for make pretty JSON
+ * Class responsible for nesting a given JSON.
  * @version 1.0
  */
 @Service
@@ -25,9 +25,9 @@ public class PrettyJSON extends Decorator {
     }
 
     /**
-     *
-     * @param json JSON representation in String
-     * @return pretty JSON representation
+     * A Java function the transforms a minified JSON into a nested JSON.
+     * @param json String representation of a certain JSON
+     * @return 0 if a bad JSON was sent or an error occurs. the nester JSON if no error occurs.
      */
     public String prettyJSON(String json){
         ObjectMapper objectMapper = new ObjectMapper();
