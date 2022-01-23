@@ -74,8 +74,10 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         }
         int brackets_only = 1;
         for (int l=0; l<json.length(); l++)
-            if (json.toCharArray()[l] != '[' && json.toCharArray()[l] != ']' && json.toCharArray()[l] != '{' && json.toCharArray()[l] != '}')
+            if (json.toCharArray()[l] != '[' && json.toCharArray()[l] != ']' && json.toCharArray()[l] != '{' && json.toCharArray()[l] != '}') {
                 brackets_only = 0;
+                break;
+            }
         if (brackets_only == 1)
             json = "[{}]";
         return json;
