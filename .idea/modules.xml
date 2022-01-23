@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/IO_I72_Delta.iml" filepath="$PROJECT_DIR$/.idea/IO_I72_Delta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsontools.iml" filepath="$PROJECT_DIR$/jsontools.iml" />
     </modules>
   </component>
 </project>
