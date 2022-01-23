@@ -60,7 +60,7 @@ class TransformJSONSpecificPropertiesTest {
     void usuwanie() {
         assertEquals(
                 "{\"size\":\"Large\",\"color\":\"Red\"}",
-                TransformJSONSpecificProperties.usuwanie("{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}","fruit"));
+                transformJSONSpecificProperties.remove("{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}","fruit"));
 
     }
 
@@ -68,7 +68,7 @@ class TransformJSONSpecificPropertiesTest {
     void structure() {
         assertEquals(
                 "{\"fruit\"size\"color}",
-                TransformJSONSpecificProperties.structure("{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}"));
+                transformJSONSpecificProperties.structure("{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}"));
 
     }
 
@@ -76,7 +76,7 @@ class TransformJSONSpecificPropertiesTest {
     void findFeatures() {
         assertEquals(
                 "fruit size color",
-                TransformJSONSpecificProperties.FindFeatures("{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}"));
+                transformJSONSpecificProperties.findFeatures("{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}"));
 
     }
 
@@ -84,7 +84,7 @@ class TransformJSONSpecificPropertiesTest {
     void findPath() {
         assertEquals(
                 " maths quiz   question options answer",
-                TransformJSONSpecificProperties.FindPath(TransformJSONSpecificProperties.structure("{\"quiz\":{\"sport\":{\"q1\":{\"question\":\"Which one is correct team name in NBA?\",\"options\":[\"New York Bulls\",\"Los Angeles Kings\",\"Golden State Warriros\",\"Huston Rocket\"],\"answer\":\"Huston Rocket\"}},\"maths\":{\"q1\":{\"question\":\"5 + 7 = ?\",\"options\":[\"10\",\"11\",\"12\",\"13\"],\"answer\":\"12\"},\"q2\":{\"question\":\"12 - 8 = ?\",\"options\":[\"1\",\"2\",\"3\",\"4\"],\"answer\":\"4\"}}}}"),"q2"));
+                transformJSONSpecificProperties.findPath(transformJSONSpecificProperties.structure("{\"quiz\":{\"sport\":{\"q1\":{\"question\":\"Which one is correct team name in NBA?\",\"options\":[\"New York Bulls\",\"Los Angeles Kings\",\"Golden State Warriros\",\"Huston Rocket\"],\"answer\":\"Huston Rocket\"}},\"maths\":{\"q1\":{\"question\":\"5 + 7 = ?\",\"options\":[\"10\",\"11\",\"12\",\"13\"],\"answer\":\"12\"},\"q2\":{\"question\":\"12 - 8 = ?\",\"options\":[\"1\",\"2\",\"3\",\"4\"],\"answer\":\"4\"}}}}"),"q2"));
 
     }
 
@@ -92,19 +92,19 @@ class TransformJSONSpecificPropertiesTest {
     void remove_duplicates() {
         assertEquals(
                 "fruit q1 color Red size ",
-                TransformJSONSpecificProperties.Remove_duplicates("fruit color q1 q1 size color Red size"));
+                transformJSONSpecificProperties.removeDuplicates("fruit color q1 q1 size color Red size"));
 
     }
 
     @Test
-    void zachowajPodane() {
+    void removeGivenProperties() {
         assertEquals(
                 " size color ",
-                TransformJSONSpecificProperties.zachowajPodane("{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}", new String[]{"fruit"}));
+                transformJSONSpecificProperties.removeGivenProperties("{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}", new String[]{"fruit"}));
     }
 
     @Test
-    void usun_wszystko_poza_podanymi() {
+    void keepGivenProperties() {
         ArrayList<String> specificProperties = new ArrayList<>();
         specificProperties.add("fruit");
         specificProperties.add("size");

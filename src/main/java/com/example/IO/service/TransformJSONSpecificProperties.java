@@ -30,7 +30,7 @@ public class TransformJSONSpecificProperties extends Decorator {
      */
     public String transformJSONSpecificProperties(TransformJSONWithoutSpecificProperties.CompareClass compareClass){
         String[] strings = compareClass.getSpecificProperties().toArray(new String[0]);
-        return usun_wszystko_poza_podanymi(compareClass.getJson(), strings);
+        return keepGivenProperties(compareClass.getJson(), strings);
     }
 
     /**
@@ -39,7 +39,7 @@ public class TransformJSONSpecificProperties extends Decorator {
      * @param specificProperties feature that need to be removed
      * @return json with removed given feature
      */
-    public static String usuwanie(String json, String specificProperties){
+    public String remove(String json, String specificProperties){
         int i = 0;
         int j;
         int code_size = json.length();
@@ -87,8 +87,10 @@ public class TransformJSONSpecificProperties extends Decorator {
         }
         int brackets_only = 1;
         for (int l=0; l<json.length(); l++)
-            if (json.toCharArray()[l] != '[' && json.toCharArray()[l] != ']' && json.toCharArray()[l] != '{' && json.toCharArray()[l] != '}')
+            if (json.toCharArray()[l] != '[' && json.toCharArray()[l] != ']' && json.toCharArray()[l] != '{' && json.toCharArray()[l] != '}') {
                 brackets_only = 0;
+                break;
+            }
         if (brackets_only == 1)
             json = "[{}]";
         return json;
@@ -99,7 +101,7 @@ public class TransformJSONSpecificProperties extends Decorator {
      * @param json JSON representation in String
      * @return string with structure of features in json code
      */
-    public static String structure(String json)
+    public String structure(String json)
     {
         String Structure = "";
         String Feature = "";
@@ -130,7 +132,7 @@ public class TransformJSONSpecificProperties extends Decorator {
      * @param json JSON representation in String
      * @return features in string separated by space
      */
-    public static String FindFeatures(String json)
+    public String findFeatures(String json)
     {
         String[] features = json.split("\":");
         String AllFeatures = "";
@@ -168,7 +170,7 @@ public class TransformJSONSpecificProperties extends Decorator {
      * @param feature feature
      * @return features in string, separated by space, that contains given feature
      */
-    public static String FindPath(String structure, String feature)
+    public String findPath(String structure, String feature)
     {
         int j = 0;
         int poziom = 0;
@@ -250,7 +252,7 @@ public class TransformJSONSpecificProperties extends Decorator {
      * @param s string consists of words separated by space
      * @return string with words that appears once
      */
-    public static String Remove_duplicates(String s)
+    public String removeDuplicates(String s)
     {
         String Return = "";
         String[] arr = s.split(" ");
@@ -278,18 +280,18 @@ public class TransformJSONSpecificProperties extends Decorator {
      * @param specificProperties features that need to be removed from all features
      * @return all features separated by space without given features and features that contains them
      */
-    public static String zachowajPodane(String json, String[] specificProperties)
+    public String removeGivenProperties(String json, String[] specificProperties)
     {
         String Structure = structure(json);
         String Cechy_ktore_musza_zostac = "";
         for (int i=0; i<specificProperties.length; i++)
-            Cechy_ktore_musza_zostac = Cechy_ktore_musza_zostac + Remove_duplicates(FindPath(Structure, specificProperties[i])) + specificProperties[i] + " ";
-        Cechy_ktore_musza_zostac = Remove_duplicates(Cechy_ktore_musza_zostac);
+            Cechy_ktore_musza_zostac = Cechy_ktore_musza_zostac + removeDuplicates(findPath(Structure, specificProperties[i])) + specificProperties[i] + " ";
+        Cechy_ktore_musza_zostac = removeDuplicates(Cechy_ktore_musza_zostac);
         specificProperties = Cechy_ktore_musza_zostac.split(" ");
-        String AllFeatures = FindFeatures(json);
+        String AllFeatures = findFeatures(json);
         for (int i=0; i<specificProperties.length; i++)
             AllFeatures = AllFeatures.replace(specificProperties[i], "");
-        AllFeatures = Remove_duplicates(AllFeatures);
+        AllFeatures = removeDuplicates(AllFeatures);
         return AllFeatures;
     }
 
@@ -299,20 +301,39 @@ public class TransformJSONSpecificProperties extends Decorator {
      * @param specificProperties features that need to be left in code
      * @return json code with removed redundant features
      */
-    public static String usun_wszystko_poza_podanymi(String json, String[] specificProperties)
+    public String keepGivenProperties(String json, String[] specificProperties)
     {
-        String To_Remove_string = zachowajPodane(json, specificProperties);
+        String To_Remove_string = removeGivenProperties(json, specificProperties);
         String[] To_Remove = To_Remove_string.split(" ");
         for (int i=0; i<To_Remove.length; i++) if (To_Remove[i].length() > 0)
-            json = usuwanie(json, To_Remove[i]);
+            json = remove(json, To_Remove[i]);
         return json;
     }
-
 
     /**
      * @param json JSON representation in String
      * @return some string
      */
+
+    public String zachowajPodaneTest(String json, String[] specificProperties, TransformJSONSpecificProperties transformJSONSpecificProperties){
+        return "Test: " + transformJSONSpecificProperties.removeGivenProperties(json,specificProperties);
+    }
+
+    public String structureTest(String json, TransformJSONSpecificProperties transformJSONSpecificProperties){
+        return "Test: " + transformJSONSpecificProperties.structure(json);
+    }
+
+    public String removeTest(String json, String specificProperties, TransformJSONSpecificProperties transformJSONSpecificProperties){
+        return "Test: " + transformJSONSpecificProperties.remove(json,specificProperties);
+    }
+    public String findPathTest(String json, String specificProperties, TransformJSONSpecificProperties transformJSONSpecificProperties){
+        return "Test: " + transformJSONSpecificProperties.findPath(json,specificProperties);
+    }
+
+    public String removeDuplicatesTest(String json, TransformJSONSpecificProperties transformJSONSpecificProperties){
+        return "Test: " + transformJSONSpecificProperties.removeDuplicates(json);
+    }
+
     @Override
     public String operation(String json) {
         return null;
