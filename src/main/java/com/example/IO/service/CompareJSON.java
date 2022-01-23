@@ -10,20 +10,37 @@ import org.springframework.stereotype.Service;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * class responsible for compare 2 JSONs
+ * @version 1.0
+ */
 @Service
 public class CompareJSON extends Decorator {
 
+    /**
+     * Constructor
+     * @param component - component instance
+     */
 
     @Lazy
     public CompareJSON(Component component) {
         super(component);
     }
 
+    /**
+     *  Help class including two strings firstJSON and secondJSON
+     */
     @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
     public static class CompareClass{
         private String firstJSON;
         private String secondJSON;
     }
+
+    /**
+     *
+     * @param compareClass - Help class including two strings firstJSON and secondJSON
+     * @return ArrayList with numbers of difference line
+     */
     public ArrayList<Integer> compareJSON(CompareClass compareClass) {
         String[] firstJSONArray = compareClass.firstJSON.split("\n");
         String[] secondJSONArray = compareClass.secondJSON.split("\n");
@@ -39,8 +56,9 @@ public class CompareJSON extends Decorator {
         return returnArrayList;
     }
 
+
     /**
-     * @param json - json as string
+     * @param json JSON representation in String
      * @return some string
      */
     @Override

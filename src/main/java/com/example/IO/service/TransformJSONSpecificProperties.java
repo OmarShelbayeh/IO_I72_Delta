@@ -3,30 +3,40 @@ package com.example.IO.service;
 import com.example.IO.model.Component;
 import com.example.IO.model.Decorator;
 
-import lombok.*;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+/**
+ * Class responsible for transform JSON including specific properties
+ * @version 1.0
+ */
 @Service
 public class TransformJSONSpecificProperties extends Decorator {
-
+    /**
+     * Constructor
+     * @param component component instance
+     */
     @Lazy
     public TransformJSONSpecificProperties(Component component) {
         super(component);
     }
 
+    /**
+     *
+     * @param compareClass Help class including representation JSON as String and ArrayList with specific properties
+     * @return json with removed given features
+     */
     public String transformJSONSpecificProperties(TransformJSONWithoutSpecificProperties.CompareClass compareClass){
         String[] strings = compareClass.getSpecificProperties().toArray(new String[0]);
-
         return usun_wszystko_poza_podanymi(compareClass.getJson(), strings);
     }
 
     /**
      * Function removes given feature from json code
-     * @param json - json code
-     * @param specificProperties - feature that need to be removed
+     * @param json JSON representation in String
+     * @param specificProperties feature that need to be removed
      * @return json with removed given feature
      */
     public static String usuwanie(String json, String specificProperties){
@@ -86,7 +96,7 @@ public class TransformJSONSpecificProperties extends Decorator {
 
     /**
      * Returns structure of json in string
-     * @param json - json code
+     * @param json JSON representation in String
      * @return string with structure of features in json code
      */
     public static String structure(String json)
@@ -117,7 +127,7 @@ public class TransformJSONSpecificProperties extends Decorator {
 
     /**
      * Returns in string all features in json, separated by space
-     * @param json - json code
+     * @param json JSON representation in String
      * @return features in string separated by space
      */
     public static String FindFeatures(String json)
@@ -154,8 +164,8 @@ public class TransformJSONSpecificProperties extends Decorator {
 
     /**
      * Returns features that contains given feature in structure of json code
-     * @param structure - json code structure
-     * @param feature - feature
+     * @param structure json code structure
+     * @param feature feature
      * @return features in string, separated by space, that contains given feature
      */
     public static String FindPath(String structure, String feature)
@@ -237,7 +247,7 @@ public class TransformJSONSpecificProperties extends Decorator {
 
     /**
      * Removes words in string that appears more than once time
-     * @param s - string consists of words separated by space
+     * @param s string consists of words separated by space
      * @return string with words that appears once
      */
     public static String Remove_duplicates(String s)
@@ -264,8 +274,8 @@ public class TransformJSONSpecificProperties extends Decorator {
 
     /**
      * From all features in json code, function removes given features and features that contains given features
-     * @param json - json code
-     * @param specificProperties - features that need to be removed from all features
+     * @param json JSON representation in String
+     * @param specificProperties features that need to be removed from all features
      * @return all features separated by space without given features and features that contains them
      */
     public static String zachowajPodane(String json, String[] specificProperties)
@@ -285,8 +295,8 @@ public class TransformJSONSpecificProperties extends Decorator {
 
     /**
      * Removes all features form json code except given features and features that contains given features
-     * @param json - json code
-     * @param specificProperties - features that need to be left in code
+     * @param json JSON representation in String
+     * @param specificProperties features that need to be left in code
      * @return json code with removed redundant features
      */
     public static String usun_wszystko_poza_podanymi(String json, String[] specificProperties)
@@ -300,7 +310,7 @@ public class TransformJSONSpecificProperties extends Decorator {
 
 
     /**
-     * @param json - json as string
+     * @param json JSON representation in String
      * @return some string
      */
     @Override
@@ -309,7 +319,7 @@ public class TransformJSONSpecificProperties extends Decorator {
     }
 
     /**
-     * @param compareClass - class compareClass
+     * @param compareClass instance of class CompareClass
      * @return Integer ArrayList
      */
     @Override
@@ -318,7 +328,7 @@ public class TransformJSONSpecificProperties extends Decorator {
     }
 
     /**
-     * @param compareClass - class compareClass
+     * @param compareClass instance of class CompareClass
      * @return some string
      */
     @Override

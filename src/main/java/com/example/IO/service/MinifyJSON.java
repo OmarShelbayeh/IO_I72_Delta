@@ -9,14 +9,27 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+/**
+ * Class responsible for make minify JSON
+ * @version 1.0
+ */
 @Service
 public class MinifyJSON extends Decorator {
 
+    /**
+     * Constructor
+     * @param component component instance
+     */
     @Lazy
     public MinifyJSON(Component component) {
         super(component);
     }
 
+    /**
+     * Make unminify JSON to minify XD
+     * @param json JSON representation in String
+     * @return minify JSON
+     */
     public String minifyJSON(String json) {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -29,7 +42,7 @@ public class MinifyJSON extends Decorator {
     }
 
     /**
-     * @param json - json as string
+     * @param json JSON representation in String
      * @return some string
      */
     @Override

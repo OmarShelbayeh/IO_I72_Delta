@@ -10,22 +10,29 @@ import java.util.ArrayList;
 
 @Service
 public class TransformJSONWithoutSpecificProperties extends Decorator {
-
+    /**
+     * Constructor
+     * @param component component instance
+     */
     @Lazy
     public TransformJSONWithoutSpecificProperties(Component component) {
         super(component);
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @ToString
+    /**
+     * CompareClass Help class including representation JSON as String and ArrayList with specific properties
+     */
+    @Getter @Setter @AllArgsConstructor @NoArgsConstructor @ToString
     public static class CompareClass {
         private String json;
         private ArrayList<String> specificProperties;
     }
 
+    /**
+     *
+     * @param compareClass Help class including representation JSON as String and ArrayList with specific properties
+     * @return json with given features
+     */
     public String transformJSONWithoutSpecificProperties(CompareClass compareClass) {
         for (String specificProperty : compareClass.getSpecificProperties()) {
             compareClass.setJson(transformJSONWithoutSpecificProperty(compareClass.getJson(), specificProperty));
@@ -33,6 +40,12 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
         return compareClass.getJson();
     }
 
+    /**
+     *
+     * @param json JSON representation in String
+     * @param specificProperties feature that need to be left (stay) (zostawione)
+     * @return json with given features
+     */
     public String transformJSONWithoutSpecificProperty(String json, String specificProperties) {
         int i = 0;
         int j;
@@ -84,7 +97,7 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
     }
 
     /**
-     * @param json - json as string
+     * @param json JSON representation in String
      * @return some string
      */
     @Override
@@ -93,7 +106,7 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
     }
 
     /**
-     * @param compareClass - class compareClass
+     * @param compareClass class compareClass
      * @return Integer ArrayList
      */
     @Override
@@ -102,7 +115,7 @@ public class TransformJSONWithoutSpecificProperties extends Decorator {
     }
 
     /**
-     * @param compareClass - class compareClass
+     * @param compareClass instance of class CompareClass
      * @return some string
      */
     @Override
