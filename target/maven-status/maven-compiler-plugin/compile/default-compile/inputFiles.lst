@@ -1,0 +1,10 @@
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/model/Decorator.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/service/PrettyJSON.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/service/CompareJSON.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/service/TransformJSONSpecificProperties.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/controller/ApiController.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/jwt/JWTWebSecurityConfig.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/service/TransformJSONWithoutSpecificProperties.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/service/MinifyJSON.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/model/Component.java
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java/com/example/IO/SqlApplication.java

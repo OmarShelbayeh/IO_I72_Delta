@@ -1,0 +1,12 @@
+com/example/IO/model/Decorator.class
+com/example/IO/service/TransformJSONWithoutSpecificProperties$CompareClass.class
+com/example/IO/service/PrettyJSON.class
+com/example/IO/service/CompareJSON.class
+com/example/IO/service/MinifyJSON.class
+com/example/IO/service/TransformJSONWithoutSpecificProperties.class
+com/example/IO/jwt/JWTWebSecurityConfig.class
+com/example/IO/controller/ApiController.class
+com/example/IO/model/Component.class
+com/example/IO/service/CompareJSON$CompareClass.class
+com/example/IO/SqlApplication.class
+com/example/IO/service/TransformJSONSpecificProperties.class

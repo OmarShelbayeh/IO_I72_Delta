@@ -10,12 +10,12 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>jsontools</artifactId>
-    <version>1.1.9</version>
+    <version>1.1.10</version>
     <packaging>jar</packaging>
     <name>JSON-Tools</name>
     <description>JSON-Tools</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>16</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -81,6 +81,18 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

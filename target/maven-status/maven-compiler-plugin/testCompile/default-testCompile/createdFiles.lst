@@ -1,0 +1,6 @@
+com/example/IO/service/CompareJSONTest.class
+com/example/IO/service/TransformJSONWithoutSpecificPropertiesTest.class
+com/example/IO/service/PrettyJSONTest.class
+com/example/IO/service/MockTests.class
+com/example/IO/service/TransformJSONSpecificPropertiesTest.class
+com/example/IO/service/MinifyJSONTest.class
