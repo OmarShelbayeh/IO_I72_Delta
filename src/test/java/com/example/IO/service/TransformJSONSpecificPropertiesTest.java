@@ -23,8 +23,8 @@ class TransformJSONSpecificPropertiesTest {
         specificProperties.add("size");
         TransformJSONWithoutSpecificProperties.CompareClass compareClass =
                 new TransformJSONWithoutSpecificProperties.CompareClass(
-                "{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}",
-                specificProperties);
+                        "{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}",
+                        specificProperties);
         assertEquals(
                 "{\"size\":\"Large\",\"color\":\"Red\"}",
                 transformJSONSpecificProperties.transformJSONSpecificProperties(compareClass));
@@ -110,9 +110,9 @@ class TransformJSONSpecificPropertiesTest {
         specificProperties.add("size");
         TransformJSONWithoutSpecificProperties.CompareClass  compareClass =
                 new TransformJSONWithoutSpecificProperties.CompareClass(
-                        "[{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\" }]",
+                        "[{\"fruit\":\"Apple\",\"size\":\"Large\",\"color\":\"Red\"}]",
                         specificProperties);
-        assertEquals("[{\"fruit\":\"Apple\",\"size\":\"Large\"}]", transformJSONSpecificProperties.operation(compareClass));
+        assertEquals("[{\"fruit\":\"Apple\",\"size\":\"Large\" }]", transformJSONSpecificProperties.operation(compareClass));
 
     }
 }
