@@ -44,9 +44,14 @@ class Filter extends Component {
         json: this.state.json,
         specificProperties: this.state.specificProperties,
       },
-    }).then((response) => {
-      this.setState({ jsonAns: response.data });
-    });
+    })
+      .then((response) => {
+        this.setState({ jsonAns: response.data });
+      })
+      .catch(() => {
+        this.props.error("Wrong JSON");
+        this.setState({ jsonAns: "Wrong JSON" });
+      });
   }
 
   transformWith() {
@@ -57,9 +62,14 @@ class Filter extends Component {
         json: this.state.json,
         specificProperties: this.state.specificProperties,
       },
-    }).then((response) => {
-      this.setState({ jsonAns: response.data });
-    });
+    })
+      .then((response) => {
+        this.setState({ jsonAns: response.data });
+      })
+      .catch(() => {
+        this.props.error("Wrong JSON");
+        this.setState({ jsonAns: "Wrong JSON" });
+      });
   }
 
   addToProps() {
@@ -172,11 +182,7 @@ class Filter extends Component {
               label="Output"
               multiline
               rows={10}
-              value={
-                this.state.option === "0"
-                  ? JSON.stringify(this.state.jsonAns, 5, 2)
-                  : JSON.stringify(this.state.jsonAns, 5, 2)
-              }
+              value={JSON.stringify(this.state.jsonAns, 5, 2)}
               fullWidth
             />
           </div>
