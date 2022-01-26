@@ -7,6 +7,9 @@
 + Hubert Szczepaniak 145351
 + Marcin Strzesak 145344
 
+## Diagram klas UML
+![UML](https://user-images.githubusercontent.com/72400704/151221622-761f8534-3859-4dcb-be57-9d1aeac31ded.png)
+
 ## Server Endpoints
 * [Pretty](#pretty) - `/prettyJSON` - POST - takes a minified JSON sent as a string in the request body and returns a nested JSON.
 * [Minify](#minify) - `/minifyJSON` - POST - takes a nested JSON sent as a string in the request body and returns a minified JSON.
