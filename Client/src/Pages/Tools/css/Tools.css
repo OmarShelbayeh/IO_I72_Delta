@@ -87,6 +87,16 @@
   margin-left: 8px;
 }
 
+table {
+  color: black;
+  width: 100%;
+  text-align: left;
+}
+
+td, th {
+  padding-top: 8px;
+}
+
 .lines {
   padding: 48px;
   width: 100%;

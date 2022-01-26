@@ -10,6 +10,7 @@ import Register from "./Pages/Register/Register";
 import Snackbar from "@mui/material/Snackbar";
 import { Alert } from "@mui/material";
 import Compare from "./Pages/Tools/Compare";
+import Filter from "./Pages/Tools/Filter";
 
 class App extends Component {
   state = {
@@ -110,6 +111,23 @@ class App extends Component {
             path="/compare"
             element={
               <Compare
+                success={(msg) => {
+                  this.success(msg);
+                }}
+                error={(msg) => {
+                  this.error(msg);
+                }}
+                warning={(msg) => {
+                  this.warning(msg);
+                }}
+              />
+            }
+          />
+          <Route
+            exact
+            path="/filter"
+            element={
+              <Filter
                 success={(msg) => {
                   this.success(msg);
                 }}

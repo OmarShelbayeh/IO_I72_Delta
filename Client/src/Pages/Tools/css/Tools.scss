@@ -43,6 +43,15 @@
   }
 }
 
+table {
+  color: black;
+  width: 100%;
+  text-align: left;
+}
+td, th{
+  padding-top: 8px;
+}
+
 .lines {
   padding: 48px;
   width: 100%;
@@ -54,6 +63,7 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
+
     .text {
       margin-top: 48px;
       width: 100%;
