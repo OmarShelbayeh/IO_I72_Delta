@@ -19,11 +19,11 @@
 -docencoding
 'UTF-8'
 -doctitle
-'JSON-Tools 1.1.14 API'
+'JSON-Tools 1.1.15 API'
 -use
 -version
 -windowtitle
-'JSON-Tools 1.1.14 API'
+'JSON-Tools 1.1.15 API'
 com.example.IO.jwt
 com.example.IO.controller
 com.example.IO.model
@@ -121,20 +121,20 @@ com.example.IO
 /home/omar/.m2/repository/io/jsonwebtoken/jjwt/0.9.1/jjwt-0.9.1.jar = 1630082650593
 /home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/src/main/java = 1642961223230
 /home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/generated-sources/annotations = 1642990995049
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/overview-summary.html = 1643216915244
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/tag-search-index.js = 1643216915216
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/stylesheet.css = 1643216915248
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/allpackages-index.html = 1643216915216
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/search.js = 1643216915252
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/overview-tree.html = 1643216915192
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/type-search-index.js = 1643216915216
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/index.html = 1643216915192
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/element-list = 1643216915116
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/jquery-ui.overrides.css = 1643216915256
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/package-search-index.js = 1643216915216
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/member-search-index.js = 1643216915216
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/index-all.html = 1643216915244
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/help-doc.html = 1643216915248
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/module-search-index.js = 1643216915216
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/allclasses-index.html = 1643216915212
-/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/script.js = 1643216915248
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/overview-summary.html = 1643220829645
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/tag-search-index.js = 1643220829633
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/stylesheet.css = 1643220829649
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/allpackages-index.html = 1643220829633
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/search.js = 1643220829649
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/overview-tree.html = 1643220829617
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/type-search-index.js = 1643220829633
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/index.html = 1643220829617
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/element-list = 1643220829553
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/jquery-ui.overrides.css = 1643220829653
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/package-search-index.js = 1643220829633
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/member-search-index.js = 1643220829633
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/index-all.html = 1643220829645
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/help-doc.html = 1643220829649
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/module-search-index.js = 1643220829633
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/allclasses-index.html = 1643220829633
+/home/omar/Desktop/School/5th Semester/Inżyniera Oprogramowania/JsonTools/target/apidocs/script.js = 1643220829649
